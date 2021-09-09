@@ -9,7 +9,7 @@ with 5 required parameters along with their values to submit your job for proces
 $ /storage/vannostrand/software/eclip/seclip \
   --ip_fastqs ip_1_fastq ip_2_fastq ip_3_fastq \
   --input_fastqs input_1_fastq input_2_fastq input_3_fastq \
-  --names ip1 ip2 ip3 \
+  --names S1 S2 S3 \
   --scheduler slurm \
   --outdir path_to_output_directory
 ```
@@ -90,7 +90,7 @@ Assume we have a SE eCLIP dataset contains the following raw fastq files for rea
 And we are interested in identifying RBPs based on human genome assembly hg19.
 
 ## Kick off analysis
-Based on the assumptions of our SE eCLIP dataset, we can issue the following 
+Based on the structure of our SE eCLIP dataset and our purpose, we can issue the following 
 minimum command from a terminal on taco cluster:
 ```shell
 /storage/vannostrand/software/eclip/seclip \
