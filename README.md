@@ -3,15 +3,13 @@ A pipeline for processing SE eCLIP data to identify genomic locations of RNA bin
 
 # Usage
 From the terminal of taco cluster, directly call `/storage/vannostrand/software/eclip/seclip` 
-with 5 required parameters along with their values to submit your job for processing:
+with 3 required parameters along with their values to submit your job for processing:
 
 ```shell
 $ /storage/vannostrand/software/eclip/seclip \
   --ip_fastqs ip_1_fastq ip_2_fastq ip_3_fastq \
   --input_fastqs input_1_fastq input_2_fastq input_3_fastq \
-  --names S1 S2 S3 \
-  --scheduler slurm \
-  --outdir path_to_output_directory
+  --names S1 S2 S3 
 ```
 
 If you want to fine tune your analysis, check out and add other optional parameters 
@@ -90,19 +88,22 @@ Assume we have a SE eCLIP dataset contains the following raw fastq files for rea
 And we are interested in identifying RBPs based on human genome assembly hg19.
 
 ## Kick off analysis
-Based on the structure of our SE eCLIP dataset and our purpose, we can issue the following 
-minimum command from a terminal on taco cluster:
+Based on the structure of our SE eCLIP dataset and our purpose, 
+we can issue the following command from a terminal on taco cluster:
 ```shell
 /storage/vannostrand/software/eclip/seclip \
     --ip_fastqs /path/to/ip1/fastq.gz /path/to/ip2/fastq.gz /path/to/ip3/fastq.gz \
     --input_fastqs /path/to/input1/fastq.gz /path/to/input2/fastq.gz /path/to/input3/fastq.gz \
     --names S1 S2 S3 \
-    --outdir /path/to/output/directory \
-    --scheduler slurm
+    --outdir /path/to/output/directory
 ```
 
-If there is no error regarding paths to fastq files, the above command should be 
-succeeded with a message like this:
+Notice that we added one additional parameter `outdir`, which will 
+save all outputs into a designed directory instead of current work
+directory (this is highly recommended). 
+
+If there is no error regarding paths to fastq  files, the above 
+command should be succeeded with a message like this:
 ```
 Job submit script was saved to:
     /path/to/output/directory/submit.sh
